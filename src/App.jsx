@@ -19,6 +19,23 @@ function App() {
   const [count, setCount] = useState(0)
   const [form_choice, setFormChoice] = useState(0)
 
+  const buttonStyler1 = {
+    color : form_choice == 1 ? 'black' : 'white',
+    backgroundColor : form_choice == 1 ? ' rgb(165 243 252)' : 'transparent'
+  }
+  const buttonStyler2 = {
+    color : form_choice == 2 ? 'black' : 'white',
+    backgroundColor : form_choice == 2 ? ' rgb(165 243 252)' : 'transparent'
+  }
+  const buttonStyler3 = {
+    color : form_choice == 3 ? 'black' : 'white',
+    backgroundColor : form_choice == 3 ? ' rgb(165 243 252)' : 'transparent'
+  }
+  const buttonStyler4 = {
+    color : form_choice == 4 ? 'black' : 'white',
+    backgroundColor : form_choice == 4 ? ' rgb(165 243 252)' : 'transparent'
+  }
+
   const [generalData,setgeneralData] =  useState({
     name : '',
     emailAdddress : "",
@@ -44,6 +61,16 @@ const generalDataManager = {
     AddonTotal : 0,
     planTotal : 0,
     grandTotal : ''
+}
+
+const arcadeStyle = {
+  backgroundColor : generalData.planarcade == true ? 'rgb(129 140 248)' : 'rgb(241 245 249)'
+}
+const advancedStyler = {
+  backgroundColor : generalData.planadvanced == true ? 'rgb(129 140 248)' : 'rgb(241 245 249)'
+}
+const proStyler = {
+  backgroundColor : generalData.planPro == true ? 'rgb(129 140 248)' : 'rgb(241 245 249)'
 }
 
 
@@ -559,10 +586,10 @@ const PlanTFunc = () => {
 
           <div id='form-container-div'>
             <div id='left-wing-div'>{/* left wing form */}
-              <blockquote><button className={` ${form_choice == 1 ? 'text-black bg-cyan-200' : ' bg-transparent'} hover:bg-cyan-200 bg-transparent font-semibold text-lg hover:text-black hover:border-transparent text-slate-200 rounded-full p-2 lg:w-10 w-12`} onClick={() => setFormChoice(1)}>1</button> <span className=' text-sm text-slate-100 font-semibold'> <p className=' text-gray-300'>STEP 1</p>YOUR INFO  </span></blockquote>
-              <blockquote><button className={` ${form_choice == 2 ? 'text-black bg-cyan-200' : ' bg-transparent'} hover:bg-cyan-200 bg-transparent font-semibold text-lg hover:text-black hover:border-transparent text-slate-200 rounded-full p-2  lg:w-10 w-12`} onClick={() => setFormChoice(2)}>2</button> <span className='text-sm text-slate-100 font-semibold'> <p className=' text-gray-300'>STEP 2</p>SELECT PLAN  </span></blockquote>
-              <blockquote><button className={` ${form_choice == 3 ? 'text-black bg-cyan-200' : ' bg-transparent'} hover:bg-cyan-200 bg-transparent font-semibold text-lg hover:text-black hover:border-transparent text-slate-200 rounded-full p-2  lg:w-10 w-12`} onClick={() => setFormChoice(3)}>3</button> <span className='text-sm text-slate-100 font-semibold'> <p className=' text-gray-300'>STEP 3</p>ADD-ONS  </span></blockquote>
-              <blockquote><button className={` ${form_choice == 4 ? 'text-black bg-cyan-200' : ' bg-transparent'} hover:bg-cyan-200 bg-transparent font-semibold text-lg hover:text-black hover:border-transparent text-slate-200 rounded-full p-2  lg:w-10 w-12`} onClick={() => setFormChoice(4)}>4</button> <span className='text-sm text-slate-100 font-semibold'> <p className=' text-gray-300'>STEP 4</p>SUMMARY  </span></blockquote>
+              <blockquote><button  style={buttonStyler1} className={` ${form_choice == 1 ? 'text-black bg-cyan-200' : ' bg-transparent'} hover:bg-cyan-200 bg-transparent font-semibold text-lg hover:text-black hover:border-transparent text-slate-200 rounded-full p-2 lg:w-10 w-12`} onClick={() => setFormChoice(1)}>1</button> <span className=' text-sm text-slate-100 font-semibold'> <p className=' text-gray-300'>STEP 1</p>YOUR INFO  </span></blockquote>
+              <blockquote><button style={buttonStyler2} className={` ${form_choice == 2 ? 'text-black bg-cyan-200' : ' bg-transparent'} hover:bg-cyan-200 bg-transparent font-semibold text-lg hover:text-black hover:border-transparent text-slate-200 rounded-full p-2  lg:w-10 w-12`} onClick={() => setFormChoice(2)}>2</button> <span className='text-sm text-slate-100 font-semibold'> <p className=' text-gray-300'>STEP 2</p>SELECT PLAN  </span></blockquote>
+              <blockquote><button style={buttonStyler3} className={` ${form_choice == 3 ? 'text-black bg-cyan-200' : ' bg-transparent'} hover:bg-cyan-200 bg-transparent font-semibold text-lg hover:text-black hover:border-transparent text-slate-200 rounded-full p-2  lg:w-10 w-12`} onClick={() => setFormChoice(3)}>3</button> <span className='text-sm text-slate-100 font-semibold'> <p className=' text-gray-300'>STEP 3</p>ADD-ONS  </span></blockquote>
+              <blockquote><button style={buttonStyler4} className={` ${form_choice == 4 ? 'text-black bg-cyan-200' : ' bg-transparent'} hover:bg-cyan-200 bg-transparent font-semibold text-lg hover:text-black hover:border-transparent text-slate-200 rounded-full p-2  lg:w-10 w-12`} onClick={() => setFormChoice(4)}>4</button> <span className='text-sm text-slate-100 font-semibold'> <p className=' text-gray-300'>STEP 4</p>SUMMARY  </span></blockquote>
             </div>
             <div id='right-wing-div'>{/* right wing form */}
 
@@ -599,15 +626,15 @@ const PlanTFunc = () => {
         </div>
         <form onSubmit={FormSubmit} id='planInfo'  >
              <div className=' gap-2 flex flex-col w-full lg:flex-row'>
-                <div name='planarcade' onClick={() => ChangesPlan('planarcade')} className={` ${generalData.planarcade == true ? ' border-2  bg-indigo-400' : ''}  overflow-hidden  bg-slate-100 bg-opacity-60 rounded-md p-2`} id='arcade'>
+                <div style={arcadeStyle} name='planarcade' onClick={() => ChangesPlan('planarcade')} className={` ${generalData.planarcade == true ? ' border-2  bg-indigo-400' : ''}  overflow-hidden  bg-slate-100 bg-opacity-60 rounded-md p-2`} id='arcade'>
                   <img src={arcade} alt="" />
                   <span className=' text-sky-950 sm:text-2xl font-semibold text-lg'>Arcade <p className=' text-sm sm:text-lg font-semibold text-gray-400'> {generalData.planperiod == 'Monthly' ?' $9/mo' : '$90/yr' }</p><p className=' text-base sm:text-lg font-semibold'>{generalData.planperiod == 'Monthly' ? '' : '2 months free' }</p></span>
                 </div>
-                <div onClick={() => ChangesPlan('planadvanced')} className={` ${generalData.planadvanced == true ? ' border-2  bg-indigo-400' : ''} overflow-hidden  bg-slate-100 bg-opacity-60 rounded-md p-2`} id='advanced'>
+                <div style={advancedStyler} onClick={() => ChangesPlan('planadvanced')} className={` ${generalData.planadvanced == true ? ' border-2  bg-indigo-400' : ''} overflow-hidden  bg-slate-100 bg-opacity-60 rounded-md p-2`} id='advanced'>
                   <img src={advancedimg} alt="" />
                   <span className=' text-sky-950  sm:text-2xl font-semibold text-lg'>Advanced <p className=' text-sm sm:text-lg font-semibold text-gray-400'>{generalData.planperiod == 'Monthly' ?'$12/mo' : '$120/yr' }</p><p className=' text-base sm:text-lg font-semibold'>{generalData.planperiod == 'Monthly' ? '' : '2 months free' }</p></span>
                 </div>
-                <div onClick={() => ChangesPlan('planPro')} className={` ${generalData.planPro == true ? ' border-2  bg-indigo-400' : ''}  overflow-hidden  bg-slate-100 bg-opacity-60 rounded-md p-2`} id='pro'>
+                <div style={proStyler} onClick={() => ChangesPlan('planPro')} className={` ${generalData.planPro == true ? ' border-2  bg-indigo-400' : ''}  overflow-hidden  bg-slate-100 bg-opacity-60 rounded-md p-2`} id='pro'>
                   <img src={proImg} alt="" />
                   <span className=' text-sky-950 sm:text-2xl font-semibold text-lg'>Pro <p className=' text-sm sm:text-lg font-semibold text-gray-400'>{generalData.planperiod == 'Monthly' ?'$15/mo' : '$150/yr' }</p><p className=' text-base sm:text-lg font-semibold'>{generalData.planperiod == 'Monthly' ? '' : '2 months free' }</p></span>
                 </div>

@@ -12,3 +12,14 @@ body {
         src: url('../assets/fonts/Ubuntu-Medium.ttf');
     }
 }
+
+@media only screen and (min-width : 640px) {
+    body {
+        align-content: center;
+        display: flex;
+    }
+    #root {
+       
+        margin: auto;
+    }
+}
